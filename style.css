@@ -4,10 +4,10 @@
 }
 body{
     height: 100vh;
-    width: 100%;
     color: white;
     background-color: black;
 }
+/* top container  */
 a{
     color: white;
     text-decoration: none;
@@ -16,21 +16,14 @@ a:hover{
     text-decoration: none;
 }
 #conteneur {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    justify-content: flex-end;
     background: black;
     width: 98%;
-    margin: 20px;
+    margin: 30px 30px 50px 30px;
     padding: 0;
-  }
-  
-  #conteneur .element {
+}
+#conteneur .element {
     padding: 20px;
     width: 150px;
     height: 80px;
@@ -38,24 +31,39 @@ a:hover{
     text-align: center;
     background: darkgrey;
     font-size: 1.3rem;
-  }
-  
-  #conteneur .element:nth-child(1) {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    /*flex: 50%;*/
+}
+#conteneur .element:nth-child(1) {
+    flex: 1;
     text-align: left;
     padding-left: 40px;
-  }
+}
 select{
     background: darkgrey;
     color: white;
     font-size: 100%;
-    /* border: none; */
     width: 130px;
 }
-section{
+/* best movie */
+#meilleurFilm{
+    margin: 40px 20px 30px 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+#meilleurFilm_title{
+    font-size: xx-large;
+    text-transform: uppercase;
+    position: relative;
+    justify-content: center;
+    padding: 50px;
+}
+#meilleurFilm_image{
+    position: relative;
+}
+/* carousels */
+.sliders{
     height: 100vh;
     width: 100%;
     color: white;
@@ -65,23 +73,6 @@ section{
     align-items: center;
     flex-wrap: wrap;
 }
-#meilleurFilm{
-    /* border: 2px solid brown; */
-    display: flex;
-    position: relative;
-    justify-content: flex-end;
-}
-#meilleurFilm_title{
-    border: 3px sploid cadetblue;
-    font-size: xx-large;
-    text-transform: uppercase;
-    flex: 1;
-    padding-top: 30px;
-    text-align: left;
-}
-#meilleurFilm_image{
-    border: 3px sploid rgb(235, 5, 166);
-}
 .title{
     position: relative;
     text-transform: uppercase;
@@ -89,15 +80,14 @@ section{
     color: white;
     font-size: xx-large;
     text-align: left;
-    padding-top: 150px;
-    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-left: 75px;
+    padding-top: 110px;
 }
 .carousel{
     height: 350px;
     width: 60%;
     position: relative;
-    border: 2px solid rgb(14, 14, 202);
-
 }
 .carousel .switchLeft,
 .carousel .switchRight{
@@ -108,64 +98,54 @@ section{
     line-height: 300px;
     font-size: 5em;
     text-align: center;
-    /* background-color: rgb(216, 11, 11); */
     font-family: sans-serif;
     top: 0;
     z-index: 1;
-    border: 2px solid rgb(201, 61, 6);
     padding-top: 20px;
 
 }
 .carousel .switchLeft{
     position: absolute;
     left: -50px;
-    border: 2px solid green;
-    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(black));
-    background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-
+}
+.carousel .switchLeft:hover{
+    transform: scale(1.3);
 }
 .carousel .switchRight{
     position: absolute;
     right: -50px;
-    border: 2px solid green;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(black));
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-  
-
+}
+.carousel .switchRight:hover{
+    transform: scale(1.3);
 }
 .movies_box {
-    height: 300px;
+    height: 400px;
     width: auto;
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
     text-align: center;
     padding: 10px;
-    margin-top: 12px;
     display: flex;
     align-items: center;
-    border: 2px solid rgb(0, 128, 122);
-
 }
 .carousel img{
     min-width: 182px;
     max-width: 182px;
     height: 268px;
     background-size: cover;
-    background-color: lightgreen;
     margin: 5px 20px;
     cursor: pointer;
     transition: 0.5s ease;
     z-index: 1;
-    border: 2px solid green;
-
+    box-shadow: 0 1px 12px 5px white;
 }
-.carousel img:hover{
-    transform: scale(1.3);
+img:hover {
+    transform: scale(1.2);
 }
+/* Modal */
 #best_movie {
-	border: 2px solid rgba(255, 196, 0, 0.575);
-    box-shadow: 0 1px 12px 5px #f47509db;
+    box-shadow: 0 1px 12px 5px #048680;
 	background: black;
 	width: 96%;
 	margin: 20px;
@@ -174,15 +154,12 @@ section{
 	display: flex;
     height: 420px;
 }
-
 .black-block {
     flex: 10%;
-    border: 1px solid gray;
     flex: 1;
 }
 .movie {
     padding: 0;
-    border: 2px solid rgb(243, 9, 9);
     flex: 60%;
     max-width: 1000px;
     max-height: 420px;
@@ -193,39 +170,17 @@ section{
 }
 #title {
     padding: 10px 0;
-    border: 1px solid blue;
     font-size: 2rem;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     font-weight: bolder;
 }
-
-em {
-    font-style: normal;
-    font-weight: bold;
-}
-a:hover {
-    color: black;
-    text-decoration: none;
-}
-::-webkit-scrollbar {
+.characters::-webkit-scrollbar {
     background-color: black;
 }
-::-webkit-scrollbar-button {
+.characters::-webkit-scrollbar-button {
     background-color: #807d7d54;
 }
-
-img:hover {
-    transform: scale(1.2);
-}
-#myBtn{
-    margin: 40px;
-    box-shadow:  0px 0px 20px 3px #686666;
-    transform: scale(1.2);
-}
 .selected_movie {
-	border: 2px solid rgba(255, 196, 0, 0.575);
-    box-shadow: 0 1px 12px 5px #f47509db;
-	background: rgb(68, 1, 1);
 	width: 96%;
 	margin: 20px;
 	padding: 0;
@@ -235,14 +190,12 @@ img:hover {
     height: 420px;
 }
 .movie{
-    padding: 5px;
+    padding: 10px;
     flex: 60%
 }
 #image_url_cible{
-    border: 2px solid coral;
     flex: 30%;
-    margin: 44px 20px 40px 20px;
-    /* margin-left: 30px; */
+    margin: 44px 30px 40px 20px;
     align-items: center;
     width: 220px;
     height: auto;
@@ -255,21 +208,20 @@ img:hover {
     max-height: 120px;
     overflow-y: auto;
 }
+.entitled{
+    text-decoration: underline;
+    padding: 10px 0 5px 0;
+    font-size: 1.3rem;
+}
 #actors{
     min-height: 20px;
     max-height: 150px;
     overflow-y: auto;
-    border: 1px solid rgb(255, 72, 0);
 }
 #synopsis{
     overflow-y: auto;
     max-height: 170px;
-    border: 1px solid rgb(255, 0, 212);
 }
-.characters{
-    border: 2px solid rgb(68, 0, 255);
-}
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -284,26 +236,27 @@ img:hover {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
     background-color: #3ff3db;
     margin: auto;
     padding: 10px;
-    border: 1px solid #888;
     width: 80%;
 }
-
 /* The Close Button */
 .close {
-    color: #2048fa5d;
+    color: rgb(23 143 127);
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 900;
 }
-.close:hover,
-.close:focus {
+.close:hover {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 5px;
 }

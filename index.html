@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Projet 6 JustStreamIt</title>
@@ -13,8 +13,8 @@
             <div class="element">JustStreamIt</div>
             <div class="element"><a href="#">Accueil</a></div>
             <div class="element">
-                <select name="categories" onChange="location.href='' + this.options[this.selectedIndex].value;"> <!-- là ça nous donne une liste déroulante et il faut utiliser selected et non checked -->
-                    <option value="category">Catégories</option>
+                <select title="categories" name="categories" onChange="location.href='' + this.options[this.selectedIndex].value;"> <!-- là ça nous donne une liste déroulante et il faut utiliser selected et non checked -->
+                    <option value="#conteneur" selected>Catégories</option>
                     <option value="#best_movies_ancre">Best Movies</option>
                     <option value="#family_movies_ancre">Family Movies</option>
                     <option value="#animation_movies_ancre">Animation Movies</option>
@@ -25,91 +25,86 @@
 
     </header>
     <section>
-        <div class="title">
-            meilleur film:
-        </div>
         <div id="meilleurFilm" class="carousel">
-            <div id="meilleurFilm_title"></div>
+            <h2 id="meilleurFilm_title">meilleur film</h2>
             <div id="meilleurFilm_image">
-                <img  alt="best_movie">
+                <img alt="best_movie" src="/.:0">
             </div>
         </div>
     </section>
-    <section>
-    <div id="best_movies_ancre" class="title">
-        Les films les mieux notés
-    </div>
-    <div class="carousel">
-        <div class="movies_box best_movies_group"><!-- Random data will come here -->
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            <img class="movies best_movies" alt="movie">
-            
+    <section class="sliders">
+        <h2 id="best_movies_ancre" class="title">best rated</h2>    
+        <div class="carousel">
+            <div class="movies_box best_movies_group">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                <img class="movies best_movies" alt="movie" src="/.:0">
+                
+            </div>
+
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft(best_movies_slider)">&lt;</a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight(best_movies_slider)">&gt;</a>
+
         </div>
-
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(best_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(best_movies_slider)">></a>
-
-    </div>
-    <div id="family_movies_ancre" class="title"> family</div>
+        <h2 id="family_movies_ancre" class="title">family</h2>
     
-    <div class="carousel">
-        <div class="movies_box family_movies_group">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            
+        <div class="carousel">
+            <div class="movies_box family_movies_group">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                <img class="movies family_movies" alt="movie" src="/.:0">
+                
+            </div>
+
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft(family_movies_slider)">&lt;</a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight(family_movies_slider)">&gt;</a>
+
         </div>
-
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(family_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(family_movies_slider)">></a>
-
-    </div>
-    <div id="animation_movies_ancre" class="title"> animation</div>
+        <h2 id="animation_movies_ancre" class="title">animation</h2>
     
-    <div class="carousel">
-        <div class="movies_box animation_movies_group">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            
+        <div class="carousel">
+            <div class="movies_box animation_movies_group">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                <img class="movies animation_movies" alt="movie" src="/.:0">
+                
+            </div>
+
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft(animation_movies_slider)">&lt;</a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight(animation_movies_slider)">&gt;</a>
+
         </div>
-
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(animation_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(animation_movies_slider)">></a>
-
-    </div>
-    <div id="adventure_movies_ancre" class="title"> adventure</div>
+        <h2 id="adventure_movies_ancre" class="title">adventure</h2>
     
-    <div class="carousel">
-        <div class="movies_box adventure_movies_group">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            
+        <div class="carousel">
+            <div class="movies_box adventure_movies_group">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                <img class="movies adventure_movies" alt="movie" src="/.:0">
+                
+            </div>
+
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft(adventure_movies_slider)">&lt;</a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight(adventure_movies_slider)">&gt;</a>
+
         </div>
-
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(adventure_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(adventure_movies_slider)">></a>
-
-    </div>
-</section>
+    </section>
     <aside>
         <div id="myModal" class="modal">
 
@@ -118,40 +113,50 @@
                 <span class="close">&times;</span>
                 <div id="best_movie" class="selected_movie">
                     <div class="movie">
-                        <div id="title">
-                            
-                        </div>
+                        <h2 id="title">Titre du film</h2>
                         <ul class="data">
                             <li id="genres">Genre du film</li>
                             <li id="countries">Origine</li>
                             <li id="year">Année </li>
-                            <li id="duration">durée</li>
+                            <li id="duration">Durée</li>
                             <li id="rated">Rated</li>
-                            <li id="imdb_score">score Imdb</li>
-                            <li id="budget">box office $</li>
-                            <li id="directors">réalisateurs</li>
+                            <li id="imdb_score">Score Imdb</li>
+                            <li id="budget">Box office $</li>
+                            <li id="directors">Réalisateurs</li>
                         </ul>    
                         <div class="characters">
+                            <div class="entitled">
+                                Actors:
+                            </div>
                             <div id="actors">
-                                Acteurs: pouvant être une longue liste de noms. voir très longue!
+                                Liste des acteurs
+                            </div>
+                            <div class="entitled">
+                                Description:
                             </div>
                             <div id="description">
-                                Synopsis: idem, un texte plus ou moins long ici. résumé du film sélectionné. Texte déroulant si besoin.
+                                Synopsis
                             </div>
                         </div>
                     </div>
                     <div class="black-block">
                     </div>
                     <div class="url">
-                            <a id="imdb_url" target="_blank">
-                                <img id="image_url_cible" alt="movie_image" title="movie_image" width:200 height:420>
-                            </a>
+                        <img id="image_url_cible" alt="movie_image" title="movie_image" src="/.:0">
                     </div>
                 </div> <!-- fin div best_movie -->
             </div><!-- fin div modal-content -->
         </div><!-- fin div modal-->
     </aside>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script> <!--integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"-->
+    <footer>
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="CSS Valide !" />
+                </a>
+            </p>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
