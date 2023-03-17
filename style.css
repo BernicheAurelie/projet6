@@ -20,14 +20,15 @@ a:hover{
     justify-content: flex-end;
     background: black;
     width: 98%;
+    height: 100px;
     margin: 30px 30px 50px 30px;
     padding: 0;
 }
 #conteneur .element {
     padding: 20px;
-    width: 150px;
-    height: 80px;
-    padding-top: 60px;
+    width: 100px;
+    height: 30px;
+    padding-top: 30px;
     text-align: center;
     background: darkgrey;
     font-size: 1.3rem;
@@ -40,27 +41,48 @@ a:hover{
 select{
     background: darkgrey;
     color: white;
-    font-size: 100%;
-    width: 130px;
+    font-size: 1.3rem;
+    width: 110px;
+    font-family: TimesNewRoman;
+
 }
 /* best movie */
 #meilleurFilm{
-    margin: 40px 20px 30px 20px;
+    margin: 10px 10% 10px 10%;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 80%;
+    box-shadow: 0 1px 12px 5px white;
+    flex-wrap: wrap;
 }
 #meilleurFilm_title{
     font-size: xx-large;
     text-transform: uppercase;
     position: relative;
     justify-content: center;
-    padding: 50px;
+    padding: 10%;
 }
 #meilleurFilm_image{
-    position: relative;
+    margin-top: 93px;
+}
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    margin: 100px 100px 30px 10%;
+    width: 80%; 
+  }
+#red_button{
+    display: flex;
+    margin-right: 40%;
+    padding-bottom: 30px;
+    justify-content: center;
+    position: -50px;
+}
+.space{
+    height: 20px;
 }
 /* carousels */
 .sliders{
@@ -101,7 +123,7 @@ select{
     font-family: sans-serif;
     top: 0;
     z-index: 1;
-    padding-top: 20px;
+    padding-top: 65px;
 
 }
 .carousel .switchLeft{
@@ -131,7 +153,7 @@ select{
 }
 .carousel img{
     min-width: 182px;
-    max-width: 182px;
+    /* max-width: 182px; */
     height: 268px;
     background-size: cover;
     margin: 5px 20px;
@@ -139,6 +161,7 @@ select{
     transition: 0.5s ease;
     z-index: 1;
     box-shadow: 0 1px 12px 5px white;
+    border-radius: 15px;
 }
 img:hover {
     transform: scale(1.2);
@@ -189,15 +212,11 @@ img:hover {
     flex-direction: row;
     height: 420px;
 }
-.movie{
-    padding: 10px;
-    flex: 60%
-}
 #image_url_cible{
     flex: 30%;
     margin: 44px 30px 40px 20px;
     align-items: center;
-    width: 220px;
+    /* width: 220px; */
     height: auto;
 }
 .data {
@@ -247,7 +266,7 @@ img:hover {
 .close {
     color: rgb(23 143 127);
     float: right;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 900;
 }
 .close:hover {
@@ -255,8 +274,101 @@ img:hover {
     text-decoration: none;
     cursor: pointer;
 }
+#retour_en_haut{
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+    font-size: 3rem;
+}
+#css {
+    border:0;
+    width:88px;
+    height:31px
+}
 footer{
     position: fixed;
     bottom: 0;
     left: 5px;
 }
+@media only screen and (max-width: 600px) {
+    #meilleurFilm{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+    }
+    #meilleurFilm_title{
+        font-size: large;
+        text-transform: uppercase;
+        position: relative;
+        justify-content: center;
+        padding: 5%;
+    }
+    #meilleurFilm_image{
+        margin-top: 20px;
+    }
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10%;
+        width: 100%; 
+      }
+    #red_button{
+        display: flex;
+        margin-right: 40%;
+        padding-bottom: 30px;
+        justify-content: center;
+        position: relative;
+    }
+    .selected_movie {
+        width: 96%;
+        margin: 20px;
+        padding: 0;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-content {
+        display: flex;
+        margin: auto;
+        padding: 5px;
+        width: 80%;
+        background-color: rgba(1, 43, 41, 0.608);
+        z-index: 3;
+    }
+    #myModal {
+        background-color: rgba(1, 43, 41, 0.608); /* Black w/ opacity */
+    }
+    #best_movie {
+        background-color: rgba(1, 43, 41, 0.608);
+        box-shadow: none;
+        width: 96%;
+        margin: 20px;
+        padding: 0;
+        text-align: justify;
+        display: flex;
+        height: 420px;
+    }
+    .url {
+        width: 96%;
+        margin: 20px;
+        padding: 0;
+        text-align: justify;
+        display: flex;
+        height: 420px;
+    }
+    #image_url_cible{
+        flex: 30%;
+        margin: 44px 30px 40px 20px;
+        align-items: center;
+        /* width: 220px; */
+        height: auto;
+    }
+    .close {
+        font-size: 40px;
+        font-weight: 1100;
+    }
+  }
