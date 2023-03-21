@@ -19,7 +19,7 @@ a:hover{
     display: flex;
     justify-content: flex-end;
     background: black;
-    width: 98%;
+    width: 96%;
     height: 100px;
     margin: 30px 30px 50px 30px;
     padding: 0;
@@ -79,7 +79,6 @@ select{
     margin-right: 40%;
     padding-bottom: 30px;
     justify-content: center;
-    position: -50px;
 }
 .space{
     height: 20px;
@@ -283,9 +282,7 @@ img:hover {
 #css {
     border:0;
     width:88px;
-    height:31px
-}
-footer{
+    height:31px;
     position: fixed;
     bottom: 0;
     left: 5px;
@@ -369,6 +366,6 @@ footer{
     }
     .close {
         font-size: 40px;
-        font-weight: 1100;
+        font-weight: 1000;
     }
   }

@@ -3,15 +3,14 @@ const family_movies_slider = document.querySelector(".family_movies_group")
 const animation_movies_slider = document.querySelector(".animation_movies_group")
 const adventure_movies_slider = document.querySelector(".adventure_movies_group")
 
-let scrollPerClick;
-let ImagePadding = 40
-
-let best_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
-let family_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Family&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
-let animation_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Animation&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
-let adventure_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Adventure&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
+let best_movies_url = "http://localhost:8000/api/v1/titles/?sort_by=-imdb_score"
+let family_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Family&sort_by=-imdb_score"
+let animation_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Animation&sort_by=-imdb_score"
+let adventure_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Adventure&sort_by=-imdb_score"
 
 let scrollAmount = 0;
+let scrollPerClick;
+let ImagePadding = 40
 
 // function to scroll from the selected_class (best_movies_slider etc)
 // depending from screen.width
@@ -19,119 +18,40 @@ let scrollAmount = 0;
 // scrollPerClick = images[0].clientWidth + ImagePadding => each image's width
 // When we arrive at carousel's end => back to top 
 function sliderScrollLeft(selected_class){
-    if(screen.width<=600){
-        if(scrollAmount <= 30){
-            scrollAmount = 1573
-        };
+    if(scrollAmount <= 30){
         selected_class.scrollTo({
             top:0,
-            left: (scrollAmount -= scrollPerClick),
+            left: 0,
             behavior: "smooth"
         });
-    } else if (screen.width<=900) {
-        if(scrollAmount <= 30){
-            scrollAmount = 1290
-            };
-            selected_class.scrollTo({
-                top:0,
-                left: (scrollAmount -= scrollPerClick),
-                behavior: "smooth"
-            });
-    } else {
-        if(scrollAmount <= 30){
-            scrollAmount = 888
-            };
-            selected_class.scrollTo({
-                top:0,
-                left: (scrollAmount -= scrollPerClick),
-                behavior: "smooth"
-            });
-    }
+        scrollAmount = selected_class.scrollWidth-selected_class.clientWidth+scrollPerClick;
+    } else {selected_class.scrollTo({
+        top:0,
+        left: (scrollAmount-=scrollPerClick),
+        behavior: "smooth"
+    });}
 }
 
 function sliderScrollRight(selected_class){
-    if(screen.width <=600){
-        if(scrollAmount>=1332){
-            selected_class.scrollTo({
-                top:0,
-                left: 0,
-                behavior: "smooth"
-            });
-            scrollAmount = 0;
-        } else if  (scrollAmount<=selected_class.scrollWidth - selected_class.clientWidth){
-            selected_class.scrollTo({
-                top:0,
-                left: (scrollAmount += scrollPerClick),
-                behavior: "smooth"
-            });
-        }
-    } else if (screen.width <=900) {
-        if(scrollAmount>=1068){
-            selected_class.scrollTo({
-                top:0,
-                left: 0,
-                behavior: "smooth"
-            });
-            scrollAmount = 0;
-        } else if  (scrollAmount<=selected_class.scrollWidth - selected_class.clientWidth){
-            selected_class.scrollTo({
-                top:0,
-                left: (scrollAmount += scrollPerClick),
-                behavior: "smooth"
-            });
-        }
-    } else {
-        if(scrollAmount>=600){
-            selected_class.scrollTo({
-                top:0,
-                left: 0,
-                behavior: "smooth"
-            });
-            scrollAmount = 0;
-        } else if  (scrollAmount<=selected_class.scrollWidth - selected_class.clientWidth){
+    if(scrollAmount>selected_class.scrollWidth - selected_class.clientWidth){
+        selected_class.scrollTo({
+            top:0,
+            left: 0,
+            behavior: "smooth"
+        });
+        scrollAmount = 0;
+    } else if  (scrollAmount<=selected_class.scrollWidth - selected_class.clientWidth){
         selected_class.scrollTo({
             top:0,
             left: (scrollAmount += scrollPerClick),
             behavior: "smooth"
         });
-        }
     }
-}
-
-// Fetch informations for red button from api with id movie
-const getBestMovieWithRedButton = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=")
-    .then(function(res) {
-  if (res.ok) {
-    return res.json();
-  }
-    })
-    .then(function(value){
-        let best_movie = document.querySelector("img.red_button");
-        best_movie.setAttribute("id", value.results[0].id);
-    })
-    .catch(function(err){
-        console.log("An error append: ", err);
-    });
-const button = document.querySelectorAll("img.red_button");
-for (let i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", function(e) {
-        console.log(button[i]);
-        e.preventDefault();
-        modal.style.display = "block";
-        let id_movie=button[i].getAttribute("id");
-        let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`.split("%20");
-        if (id_movie === "image_url_cible") {
-            console.log("datas are already loaded");
-        } else {
-            getMovieInformation(movie_url);
-        }
-        
-  })  
 }
 
 // get bestmovie from api => return json => set attribute id to button with film id
 // and image_url for image.
-const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=")
+const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
     .then(function(res) {
   if (res.ok) {
     return res.json();
@@ -148,7 +68,22 @@ const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_co
     .catch(function(err){
         console.log("An error append: ", err);
     });
-
+    
+// Fetch informations for red button from api with id movie
+const getBestMovieWithRedButton = fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
+    .then(function(res) {
+  if (res.ok) {
+    return res.json();
+  }
+    })
+    .then(function(value){
+        let best_movie = document.querySelector("img.red_button");
+        best_movie.setAttribute("id", value.results[0].id);
+    })
+    .catch(function(err){
+        console.log("An error append: ", err);
+    });
+    
 async function showMovieData(url, className){
     fetch(url)
         .then(function(res) {
@@ -173,11 +108,11 @@ async function showMovieData(url, className){
                     result_page2.push(result7)
                     let movies = all_results.concat(result_page2)
                     let images = document.getElementsByClassName(className);
+                    scrollPerClick = images[0].clientWidth + ImagePadding;
                     movies.map(function(cur,index){
                     images[index].setAttribute("src", cur.image_url);
                     images[index].setAttribute("id", cur.id);
                     });
-                    scrollPerClick = images[0].clientWidth + ImagePadding;
                 })
                 .catch(function(err){
                     console.log("An error append fetching second page ", err);
@@ -195,13 +130,13 @@ let modal = document.getElementById("myModal");
 // Get the button that opens the modal and 
 // When the user clicks the button, open modal
 // Fetch informations from api with id movie
-const imgs = document.querySelectorAll("img.movies, img.best_movie");
+const imgs = document.querySelectorAll("img.movies, img.best_movie, img.red_button");
 for (let i = 0; i < imgs.length; i++) {
     imgs[i].addEventListener("click", function(e) {
         e.preventDefault();
         modal.style.display = "block";
         let id_movie=imgs[i].getAttribute("id");
-        let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`.split("%20");
+        let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`;
         if (id_movie === "image_url_cible") {
             console.log("datas are already loaded");
         } else {
