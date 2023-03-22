@@ -8,7 +8,7 @@ let family_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Fam
 let animation_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Animation&sort_by=-imdb_score"
 let adventure_movies_url = "http://localhost:8000/api/v1/titles/?genre_contains=Adventure&sort_by=-imdb_score"
 
-let scrollAmount = 0;
+let scrollBase = 0;
 let scrollPerClick;
 let ImagePadding = 40
 
@@ -18,32 +18,32 @@ let ImagePadding = 40
 // scrollPerClick = images[0].clientWidth + ImagePadding => each image's width
 // When we arrive at carousel's end => back to top 
 function sliderScrollLeft(selected_class){
-    if(scrollAmount <= 30){
+    if(scrollBase <= 30){
         selected_class.scrollTo({
             top:0,
             left: 0,
             behavior: "smooth"
         });
-        scrollAmount = selected_class.scrollWidth-selected_class.clientWidth+scrollPerClick;
+        scrollBase = selected_class.scrollWidth-selected_class.clientWidth+scrollPerClick;
     } else {selected_class.scrollTo({
         top:0,
-        left: (scrollAmount-=scrollPerClick),
+        left: (scrollBase-=scrollPerClick),
         behavior: "smooth"
     });}
 }
 
 function sliderScrollRight(selected_class){
-    if(scrollAmount>selected_class.scrollWidth - selected_class.clientWidth){
+    if(scrollBase>selected_class.scrollWidth - selected_class.clientWidth){
         selected_class.scrollTo({
             top:0,
             left: 0,
             behavior: "smooth"
         });
-        scrollAmount = 0;
-    } else if  (scrollAmount<=selected_class.scrollWidth - selected_class.clientWidth){
+        scrollBase = 0;
+    } else if  (scrollBase<=selected_class.scrollWidth - selected_class.clientWidth){
         selected_class.scrollTo({
             top:0,
-            left: (scrollAmount += scrollPerClick),
+            left: (scrollBase += scrollPerClick),
             behavior: "smooth"
         });
     }
@@ -145,7 +145,6 @@ for (let i = 0; i < imgs.length; i++) {
         
   })  
 }
-
 
 // get movie informations for modal box
 function getMovieInformation(movie_url){
