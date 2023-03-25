@@ -1,13 +1,15 @@
 # projet6
 
-[![Generic badge](https://img.shields.io/badge/MADE_WITH-HTML5-orange.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/MADE_WITH-HTML5-red.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/MADE_WITH-CSS3-blue.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/MADE_WITH-JAVASCRIPT-yellow.svg)](https://shields.io/)   
+[![Generic badge](https://img.shields.io/badge/FOR-JustStreamIt-green.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/APPROVED_BY-AURELIE_BERNICHE-blueviolet.svg)](https://shields.io/)
 
 
 ## Introduction
 
-Ce site web a été réalisé pour une association qui souhaite se doter d'une application pour visualiser en temps réel un classement de films interessants.
+Ce site web a été réalisé pour l'association JstStreamIt qui souhaite se doter d'une application pour visualiser en temps réel un classement de films intéressants.
 Ce site fonctionne sur les trois navigateurs principaux et est en lien avec une API maison permettant de recueillir les données filtrées des films grâce à des requètes AJAX.
 
 ### Pré-requis
@@ -37,7 +39,8 @@ Vous pouvez maintenant lancer le site web:
 ## Fabriqué avec
 
 - [HTML5](https://html.spec.whatwg.org/) - Format de données
-- [CSS3](https://html.spec.whatwg.org/) - Feuille de style en cascade
+- [CSS3](https://www.w3.org/Style/CSS/) - Feuille de style en cascade
+- [JAVASCRIPT](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Langage de  programmation
 - [Visual Studio Code](https://code.visualstudio.com/) - Editeur de textes
 
 ## Contributing

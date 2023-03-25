@@ -80,9 +80,6 @@ select{
     padding-bottom: 30px;
     justify-content: center;
 }
-.space{
-    height: 20px;
-}
 /* carousels */
 .sliders{
     height: 100vh;
@@ -152,7 +149,6 @@ select{
 }
 .carousel img{
     min-width: 182px;
-    /* max-width: 182px; */
     height: 268px;
     background-size: cover;
     margin: 5px 20px;
